@@ -2,6 +2,6 @@ FROM ubuntu:24.04
 
 COPY ./ubuntu2404.sources /etc/apt/sources.list.d/ubuntu.sources
 
-RUN apt-get clean all && apt-get update && apt-get install -y python3 python3-pip apt-rdepends && ln -s /usr/bin/python3 /usr/bin/python
+RUN apt-get clean all && apt-get update && apt-get install -y python3 python3-pip apt-rdepends sudo && ln -s /usr/bin/python3 /usr/bin/python
 
 WORKDIR /app
