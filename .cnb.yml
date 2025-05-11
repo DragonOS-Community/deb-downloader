@@ -28,3 +28,23 @@ release_*:
               settings:
                 attachments:
                   - "./output/*.tar.xz"
+
+master:
+  push:
+    - name: sync to github
+      runner:
+        cpus: 1
+      stages:
+        - name: sync to github
+          image: tencentcom/git-sync
+          if: |
+              bash -c "[[ "${CNB_REPO_SLUG_LOWERCASE}" == "dragonos-community/deb-downloader" ]]"
+          imports:
+            - https://cnb.cool/DragonOS-Community/envs-repo/-/blob/main/deb-downloader/envs.yml
+          settings:
+            target_url: https://github.com/DragonOS-Community/deb-downloader.git
+            auth_type: https
+            force: true
+            push_tags: true
+            username: ${GITHUB_USERNAME}
+            password: ${GITHUB_PUSH_TOKEN}
