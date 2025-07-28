@@ -37,4 +37,4 @@ endif
 
 .PHONY: clean
 clean:
-	rm -rf ./output
+	sudo rm -rf ./output
