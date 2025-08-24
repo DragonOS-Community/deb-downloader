@@ -16,23 +16,33 @@ make build-docker-ubuntu2404
 
 ## Usage
 
-### Download DEB Packages and Dependencies
+### (Recommended) Method 1: Direct packaging
 
-Replace `xxx` with the name of the DEB package you want to download.
+```bash
+./pack.sh <package_config_name>
+```
+
+Package configurations are located in `./packages`.
+
+### (Not Recommended) Method 2: Manual operations
+
+#### Download deb packages and their dependencies
+
+Please replace xxx with the name of the deb package you want to download.
 
 ```
 make PACKAGE_NAME=xxx download
 ```
 
-### Extract DEB Packages
+#### Extract deb packages
 
-This command will extract the downloaded DEB packages to the `output/sysroot` directory.
+This command will extract the above deb packages to the `output/sysroot` folder.
 
 ```
 make unpack
 ```
 
-### Clean Up
+#### Clean
 
 ```
 make clean

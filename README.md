@@ -17,7 +17,17 @@ make build-docker-ubuntu2404
 
 ## 使用
 
-### 下载deb包及其依赖项
+### （推荐）方式1： 直接打包
+
+```bash
+./pack.sh <package_config_name>
+```
+
+包的配置在`./packages`下面
+
+### （不推荐）方式2： 手动操作
+
+#### 下载deb包及其依赖项
 
 请将xxx替换成你要下载的deb包的名称
 
@@ -25,7 +35,7 @@ make build-docker-ubuntu2404
 make PACKAGE_NAME=xxx download
 ```
 
-### 解压deb包
+#### 解压deb包
 
 这个命令将会把上述的deb包解压到`output/sysroot`文件夹中
 
@@ -33,7 +43,7 @@ make PACKAGE_NAME=xxx download
 make unpack
 ```
 
-### 清理
+#### 清理
 
 ```
 make clean
